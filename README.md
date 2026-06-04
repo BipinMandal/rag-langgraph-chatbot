@@ -36,22 +36,22 @@ Every component is free-tier. No paid APIs required to run this locally.
                          │         │
               [RAG path] │         │ [out-of-domain]
                          │         │
-          ┌──────────────▼──┐  ┌───▼──────────────┐
+          ┌──────────────▼───┐  ┌───▼──────────────┐
           │  Query Rewriter  │  │   Web Search     │
           │  (8b-instant)    │  │   (Tavily)       │
           └──────────┬───────┘  └────────┬─────────┘
                      │                   │
-          ┌──────────▼───────┐           │
+          ┌──────────▼────────┐          │
           │    RETRIEVER      │          │
           │  Hybrid Search    │          │
           │  Dense + BM25     │          │
           │  (Qdrant Cloud)   │          │
-          └──────────┬───────┘           │
+          └──────────┬────────┘          │
                      │                   │
-          ┌──────────▼───────┐           │
+          ┌──────────▼────────┐          │
           │  DOCUMENT GRADER  │          │
           │  Score 0.0–1.0    │          │
-          └──┬───────────┬───┘           │
+          └──┬───────────┬────┘          │
         [≥1] │     [0]   │               │
              │  ┌────────▼─────────┐     │
              │  │ CORRECTIVE RAG   │     │
@@ -72,11 +72,11 @@ Every component is free-tier. No paid APIs required to run this locally.
           └────┬─────────────────────────┘
           [valid]              [invalid → retry with reason]
                │
-          ┌────▼────────────────────────┐
+          ┌────▼─────────────────────────┐
           │        MEMORY SAVER          │
           │  Short-term: Redis session   │
           │  Long-term:  summarise+save  │
-          └─────────────────────────────┘
+          └──────────────────────────────┘
                          │
                     FINAL ANSWER + CITATIONS
                     (rendered in Streamlit UI)
