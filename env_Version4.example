@@ -1,0 +1,46 @@
+# =============================================================================
+#  RAG LangGraph Chatbot — Environment Variables
+#  Copy this file to .env and fill in your own keys.
+#  NEVER commit your .env file to git (it's already in .gitignore).
+# =============================================================================
+
+
+# ── 1. GROQ (Free LLM API) ────────────────────────────────────────────────────
+#  Used for: answer generation, routing, grading, query rewriting, image captioning
+#  Sign up : https://console.groq.com
+#  Steps   : Console → API Keys → Create Key
+GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+# ── 2. TAVILY (Web Search API) ────────────────────────────────────────────────
+#  Used for: web search fallback when the paper doesn't contain the answer
+#  Sign up : https://app.tavily.com
+#  Steps   : Dashboard → API Keys → Copy key
+#  Free    : 1,000 searches/month
+TAVILY_API_KEY=tvly-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+# ── 3. QDRANT CLOUD (Vector Database) ────────────────────────────────────────
+#  Used for: storing and searching child chunk embeddings (hybrid search)
+#  Sign up : https://cloud.qdrant.io
+#  Steps   : Create Cluster (free) → API Keys → Create → Copy URL + Key
+#  Free    : 1 GB forever
+QDRANT_URL=https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.us-east4-0.gcp.cloud.qdrant.io
+QDRANT_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+# ── 4. MONGODB ATLAS (Document Store) ────────────────────────────────────────
+#  Used for: storing full parent chunks retrieved after vector search
+#  Sign up : https://cloud.mongodb.com
+#  Steps   : Build a Database → M0 Free → Connect → Drivers → Python → Copy URI
+#  Free    : 512 MB M0 cluster forever
+MONGODB_URI=mongodb+srv://YOUR_USERNAME:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+# ── 5. UPSTASH REDIS (Memory Store) ──────────────────────────────────────────
+#  Used for: short-term chat history + long-term user memory summaries
+#  Sign up : https://console.upstash.com
+#  Steps   : Create Database (free) → REST API tab → Copy URL + Token
+#  Free    : 10,000 commands/day
+UPSTASH_REDIS_URL=https://xxxxxxxxxx-xxx-xxxxx-xxxx.upstash.io
+UPSTASH_REDIS_TOKEN=AXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

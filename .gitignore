@@ -1,0 +1,36 @@
+# Environment variables — NEVER commit this
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+
+# uv / virtual environment
+.venv/
+.uv/
+
+# Extracted images from PDF ingestion
+extracted_images/
+
+# Downloaded PDFs
+*.pdf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Streamlit cache
+.streamlit/
