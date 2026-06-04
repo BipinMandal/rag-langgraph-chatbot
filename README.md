@@ -12,27 +12,9 @@ Every component is free-tier. No paid APIs required to run this locally.
 ## 🖼️ Screenshot
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
+ ─────────────────────────────────────────────────────────────────────
 │  📖 RAG Chatbot — Attention Is All You Need                         │
-├──────────────────┬──────────────────────────────────────────────────┤
-│ SIDEBAR          │  You: How does multi-head attention work?         │
-│                  │                                                   │
-│ 👤 User: bipin   │  🤖 Multi-head attention projects queries, keys   │
-│                  │  and values h times with different learned        │
-│ 📊 Last Query    │  projections... [Doc 2] Section 3.2, Page 4       │
-│  Route: rag      │                                                   │
-│  Valid: ✅        │  🖼️ Figure References                             │
-│  Sources: 4      │  ┌─────────────────────────────────────────────┐ │
-│                  │  │ Figure 1 — Transformer Architecture         │ │
-│ 💡 Examples      │  │ [actual image from the paper]               │ │
-│  How does MHA..  │  └─────────────────────────────────────────────┘ │
-│  What is Fig 1?  │                                                   │
-│  Compare Table 2 │  📊 Table References                              │
-│                  │  ┌─────────────────────────────────────────────┐ │
-│ ⚙️ Debug Mode    │  │ | Model | EN-DE BLEU | EN-FR BLEU |          │ │
-│ 💾 Save & New    │  │ |-------|------------|------------|          │ │
-│ 🗑️ Clear Chat    │  └─────────────────────────────────────────────┘ │
-└──────────────────┴──────────────────────────────────────────────────┘
+ ─────────────────────────────────────────────────────────────────────
 ```
 
 ---
@@ -43,13 +25,13 @@ Every component is free-tier. No paid APIs required to run this locally.
                          USER QUERY
                               │
                     ┌─────────▼─────────┐
-                    │   Memory Loader    │  ← Upstash Redis
-                    │  (history + LTM)   │    short-term + long-term
+                    │   Memory Loader   │  ← Upstash Redis
+                    │  (history + LTM)  │    short-term + long-term
                     └─────────┬─────────┘
                               │
                     ┌─────────▼─────────┐
-                    │      ROUTER        │  ← llama-3.1-8b-instant
-                    │ (rag / web_search) │
+                    │      ROUTER       │  ← llama-3.1-8b-instant
+                    │ (rag / web_search)│
                     └────┬─────────┬────┘
                          │         │
               [RAG path] │         │ [out-of-domain]
@@ -60,15 +42,15 @@ Every component is free-tier. No paid APIs required to run this locally.
           └──────────┬───────┘  └────────┬─────────┘
                      │                   │
           ┌──────────▼───────┐           │
-          │    RETRIEVER      │           │
-          │  Hybrid Search    │           │
-          │  Dense + BM25     │           │
-          │  (Qdrant Cloud)   │           │
+          │    RETRIEVER      │          │
+          │  Hybrid Search    │          │
+          │  Dense + BM25     │          │
+          │  (Qdrant Cloud)   │          │
           └──────────┬───────┘           │
                      │                   │
           ┌──────────▼───────┐           │
-          │  DOCUMENT GRADER  │           │
-          │  Score 0.0–1.0    │           │
+          │  DOCUMENT GRADER  │          │
+          │  Score 0.0–1.0    │          │
           └──┬───────────┬───┘           │
         [≥1] │     [0]   │               │
              │  ┌────────▼─────────┐     │
@@ -76,7 +58,7 @@ Every component is free-tier. No paid APIs required to run this locally.
              │  │ (Tavily fallback)│     │
              │  └────────┬─────────┘     │
              │           │               │
-          ┌──▼───────────▼───────────────▼──┐
+          ┌──▼───────────▼───────────────▼───┐
           │           GENERATOR              │
           │     llama-3.3-70b-versatile      │
           │  Parent docs from MongoDB +      │
